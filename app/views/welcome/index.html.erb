@@ -1,2 +1,50 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="hero-banner">
+    <div class="container hero-banner-wrapper">
+      <div class="row">
+        <div class="col-12 text-center text-white">
+          <h1>Welcome to the Photo Management App</h1>
+          <h4>The right tool for the people who love photos</h4>
+        </div>
+      </div>
+      <div class="row gy-5 mt-3 justify-content-center align-items-center">
+        <div class="col-md-4">
+          <div class="hero-card">
+            <div class="hero-card-body">
+              <h3 class="mb-3 pb-3 border-bottom text-center">Premium Plan - $10</h3>
+              <div class="hero-card-list-features">
+                <ul>
+                  <li>Unlimited Image Uploads</li>
+                  <li>Responsive design</li>
+                  <li>Access anywhere</li>
+                </ul>
+                <%# <p>Unlimited Image Uploads <br> Responsive design <br> Access anywhere</p> %>
+              </div>
+            </div>
+            <div class="hero-card-footer">
+              <%= link_to("Sign Up", new_user_registration_path, class: "btn btn-primary w-100")%>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="hero-card">
+            <div class="hero-card-body">
+              <h3 class="mb-3 pb-3 border-bottom text-center">Amaze Plan - $20</h3>
+              <div class="hero-card-list-features">
+                <ul>
+                  <li>Unlimited Image Uploads</li>
+                  <li>Responsive design</li>
+                  <li>Access anywhere</li>
+                  <li>Unlimited projects</li>
+                </ul>
+                <%# <p>Unlimited Image Uploads <br> Responsive design <br> Access anywhere</p> %>
+              </div>
+            </div>
+            <div class="hero-card-footer">
+              <%= link_to("Sign Up", new_user_registration_path, class: "btn btn-primary w-100")%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
