@@ -24,6 +24,26 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-100 form-control" %>
         </div>
 
+        <%= fields_for(:payment) do |p| %>
+          <div class="col-9 mt-3">
+            <%= p.label :card_number, "Card Number", data: {stripe: "label"} %>
+            <%= p.text_field :card_number, required: true, data: { stripe: "number"}, class: "w-100 form-control" %>
+          </div>
+          <div class="col-3 mt-3">
+            <%= p.label :card_cvv, "Card CVV", data: {stripe: "label"} %>
+            <%= p.text_field :card_cvv, required: true, data: { stripe: "cvc"}, class: "w-100 form-control" %>
+          </div>
+          <div class="col-12 mt-3">
+            <%= p.label :card_expires, "Card Expires", data: {stripe: "label"} %>
+          </div>
+          <div class="col-3 mt-3">
+            <%= p.select :card_expires_month, options_for_select(Payment.month_options), {include_blank: "Month"}, "data-stripe" => "exp-month", class: "form-control w-100", required: true %>
+          </div>
+          <div class="col-3 mt-3">
+            <%= p.select :card_expires_year, options_for_select(Payment.year_options.push), {include_blank: "Year"}, data: { stripe: "exp-year" }, class: "form-control w-100", required: true %>
+          </div>
+        <% end %>
+
         <div class="actions mt-2">
           <%= f.submit "Sign up", class: "btn btn-primary"%>
         </div>
