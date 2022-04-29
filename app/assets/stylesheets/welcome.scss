@@ -9,6 +9,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  @media (max-width: 768px) { 
+    width: 100%;
+   }
 }
 
 .hero-banner-wrapper {
@@ -29,11 +32,15 @@
 }
 
 .hero-card-body {
+  height: 100%;
   padding: 0px 15px;
 }
 
 .hero-card-list-features {
-  min-height: 150px;
+  height: 150px;
+  @media (max-width: 768px) { 
+    height: 100%;
+  }
 }
 
 .hero-card-footer {
