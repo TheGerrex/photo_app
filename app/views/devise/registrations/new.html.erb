@@ -1,10 +1,14 @@
-<div class="d-flex justify-content-center m-0" >
-  <div class="bg-light p-5 rounded-3 w-100 mt-3">
+<script language="Javascript">
+  var stripe = Stripe.setPublishableKey("pk_test_51HFSEmGpmaKMXrUfinfy1xs8FlOuq0c3gYK2W2MqOkJvjLefZbehrM349aggfb1HTVcSkoJOIC1YrrmkfVsIWmxQ004Vr2yC3m");
+  // var elements = stripe.elements();
+</script>
+<div class="container d-flex justify-content-center m-auto" >
+  <div class="bg-light p-5 rounded-3 mt-3">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <%= render "devise/shared/error_messages", resource: resource %>
       <h2>Sign up</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-field row g-2'}) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-field row g-2', role: "form", id: "cc_form"}) do |f| %>
 
         <div class="col-12 mt-3">
           <%= f.label :email %>
@@ -30,21 +34,21 @@
             <%= p.text_field :card_number, required: true, data: { stripe: "number"}, class: "w-100 form-control" %>
           </div>
           <div class="col-3 mt-3">
-            <%= p.label :card_cvv, "Card CVV", data: {stripe: "label"} %>
+            <%= p.label :card_cvv, "CVC", data: {stripe: "label"} %>
             <%= p.text_field :card_cvv, required: true, data: { stripe: "cvc"}, class: "w-100 form-control" %>
           </div>
           <div class="col-12 mt-3">
             <%= p.label :card_expires, "Card Expires", data: {stripe: "label"} %>
           </div>
-          <div class="col-3 mt-3">
-            <%= p.select :card_expires_month, options_for_select(Payment.month_options), {include_blank: "Month"}, "data-stripe" => "exp-month", class: "form-control w-100", required: true %>
+          <div class="col-6 col-md-3">
+            <%= p.select :card_expires_month, options_for_select(Payment.month_options), {include_blank: "Month"}, "data-stripe" => "exp-month", class: "form-select w-100", required: true %>
           </div>
-          <div class="col-3 mt-3">
-            <%= p.select :card_expires_year, options_for_select(Payment.year_options.push), {include_blank: "Year"}, data: { stripe: "exp-year" }, class: "form-control w-100", required: true %>
+          <div class="col-6 col-md-3">
+            <%= p.select :card_expires_year, options_for_select(Payment.year_options.push), {include_blank: "Year"}, data: { stripe: "exp-year" }, class: "form-select w-100", required: true %>
           </div>
         <% end %>
 
-        <div class="actions mt-2">
+        <div class="actions mt-3">
           <%= f.submit "Sign up", class: "btn btn-primary"%>
         </div>
       <% end %>
