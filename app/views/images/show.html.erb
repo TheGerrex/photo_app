@@ -1,0 +1,17 @@
+<div class="container d-flex justify-content-center m-auto" >
+  <div class="bg-light p-5 rounded-3 mt-3 w-100">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <p>
+        <strong>Name:</strong>
+        <%= @image.name %>
+      </p>
+
+      <p>
+        <%= image_tag @image.picture.url, size: "350x350" if @image.picture? %>
+      </p>
+
+      <%= link_to 'Edit', edit_image_path(@image) %>
+      <%= link_to 'Back', images_path %>
+    </div>
+  </div>
+</div>

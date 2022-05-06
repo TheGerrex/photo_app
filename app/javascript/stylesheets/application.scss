@@ -10,3 +10,18 @@ hr {
   width: 100%;
   height: 1px;
 }
+
+a {
+  background-color: transparent !important;
+}
+
+.nav-link:hover {
+  background-color: rgba($color: #5e5e5e, $alpha: 0.2);
+  border-radius: 5px;
+  color: gray !important;
+}
+
+.navbar-brand:hover {
+  background-color: transparent;
+  color: rgb(62, 62, 62) !important;
+}
